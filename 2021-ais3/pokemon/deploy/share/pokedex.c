@@ -151,7 +151,7 @@ int countBytes(char *buf, char *damage)
     return bytes;
 }
 
-void useProp(PokemonMaster *master, Pokemon *monster, int idx) // idx is signed => 
+void useProp(PokemonMaster *master, Pokemon *monster, int idx)
 {
     char *prop = master->props[idx];
     

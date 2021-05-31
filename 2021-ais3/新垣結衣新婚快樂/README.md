@@ -10,7 +10,7 @@
 
 題目附件只有一張圖，打開來只有三種不同風格的新垣結衣，如果你細心一點的話，可以看到在最左邊結衣的頭髮上有留 `AIS3{NOT_ME^_^}` 的假 flag。
 
-當圖片表面沒有資訊後，就會開始查看圖片背後是否藏些什麼資訊。 而分析檔案內容的工具有很多種，在這邊舉兩個為例子： `string` 以及 `binwalk`  。
+當圖片表面沒有資訊後，就會開始查看圖片背後是否藏些什麼資訊。 而分析檔案內容的工具有很多種，在這邊舉兩個為例子： `string` 以及 `binwalk` 。
 
 使用 `string` 會看到輸出的結尾有 .png 的字串，而使用 `binwalk` 的話會發現它告訴你這張照片裡面有 zip 的資料，到這邊可以判斷出這張圖片藏了其他檔案。
 
@@ -27,6 +27,6 @@
 
 不過偽加密的 .zip 檔其實會被認定是 corrupted，因此如果用 zip 提供 `-FF` (`--fixfix`) 的 flag 來修復此 .zip 檔案就能回復成未加密的樣子。
 
-解開後會有一個檔案名稱為 `awertyjasgnp.knmrq` 的檔案，其實是檔案名稱 `awertyjasqrmnk.png` 中加入了 `U202E` unicode (`awertyjas<U202E>qrmnk.png`)。此 unicode 的功能是將後面的字串以倒著的方式呈現，因此會讓此 .png 看起來不像 .png
+解開後會有一個檔案名稱為 `awertyjasgnp.knmrq` 的檔案，其實是檔案名稱 `awertyjasqrmnk.png` 中加入了 `U202E` unicode (`awertyjas<U202E>qrmnk.png`)，此 unicode 會讓後面的字串以倒著的方式呈現，因此會讓此 .png 看起來不像 .png。
 
 最後打開 png 就是 flag 了： `AIS3{看好了世界，我只示範一次如何一天搶走幾億人的老婆}`
