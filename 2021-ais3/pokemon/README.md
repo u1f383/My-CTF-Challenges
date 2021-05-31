@@ -1,14 +1,16 @@
 # pokemon
 
 ## 考點
+
 1. 逆向程式的能力
 2. fmt trick
 3. OOB
 4. partial overwrite
 5. 串接可以使用的 struct element
 
+## Exploit
 
-> 這題是我這次 AIS3 花最多時間出的一題
+> 這題是我這次 AIS3 花最多時間出的一題 XD
 
 題目在 release 不久後就有更新 distribution，其中有放 source code，如果直接編譯的話應該會看到下面的 warning：
 ``` shell
