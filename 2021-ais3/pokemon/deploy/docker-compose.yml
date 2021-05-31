@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  pokemon:
+    build: .
+    ports:
+      - "5006:22/tcp"
+    environment:
+      - TERM=xterm-256color
+    expose:
+      - "5006"

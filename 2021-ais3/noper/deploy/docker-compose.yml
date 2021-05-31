@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  noper:
+    build: ./
+    volumes:
+      - ./share:/home/noper:ro
+      - ./xinetd:/etc/xinetd.d/noper:ro
+    ports:
+      - "5002:5002"
+    expose:
+      - "5002"

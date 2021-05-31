@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  sleeper:
+    build: .
+    volumes:
+      - ./share:/home/sleeper:ro
+      - ./xinetd:/etc/xinetd.d/sleeper:ro
+    ports:
+      - "5001:5001"
+    expose:
+      - "5001"
