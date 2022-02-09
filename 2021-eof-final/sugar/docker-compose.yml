@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  sugar:
+    build: ./
+    volumes:
+      - ./share:/home/sugar:ro
+      - ./xinetd:/etc/xinetd.d/sugar:ro
+    ports:
+      - "0000:0000"
+    expose:
+      - "0000"

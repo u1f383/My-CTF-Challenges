@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  logger:
+    build: ./
+    volumes:
+      - ./share:/home/logger:ro
+      - ./xinetd:/etc/xinetd.d/logger:ro
+    ports:
+      - "0000:0000"
+    expose:
+      - "0000"
