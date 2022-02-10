@@ -1,12 +1,12 @@
-service two-gadget
+service sugar
 {
     disable = no
     type = UNLISTED
     socket_type = stream
     protocol = tcp
-    server = /home/<redacted>/run.sh
-    user = two-gadget
-    port = 0000
+    server = /home/sugar/run.sh
+    user = sugar
+    port = 45124
     flags = REUSE
     bind = 0.0.0.0
     wait = no

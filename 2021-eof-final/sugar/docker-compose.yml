@@ -7,6 +7,6 @@ services:
       - ./share:/home/sugar:ro
       - ./xinetd:/etc/xinetd.d/sugar:ro
     ports:
-      - "0000:0000"
+      - "45124:45124"
     expose:
-      - "0000"
+      - "45124"

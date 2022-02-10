@@ -1,12 +1,12 @@
-service logger
+service two-gadget
 {
     disable = no
     type = UNLISTED
     socket_type = stream
     protocol = tcp
-    server = /home/logger/run.sh
-    user = logger
-    port = 0000
+    server = /home/<redacted>/run.sh
+    user = two-gadget
+    port = 45126
     flags = REUSE
     bind = 0.0.0.0
     wait = no

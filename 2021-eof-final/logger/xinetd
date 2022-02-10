@@ -1,12 +1,12 @@
-service sugar
+service logger
 {
     disable = no
     type = UNLISTED
     socket_type = stream
     protocol = tcp
-    server = /home/sugar/run.sh
-    user = sugar
-    port = 0000
+    server = /home/logger/run.sh
+    user = logger
+    port = 45125
     flags = REUSE
     bind = 0.0.0.0
     wait = no

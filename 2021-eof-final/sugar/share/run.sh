@@ -1,4 +1,4 @@
 #!/bin/sh
 
 exec 2>/dev/null
-timeout 60 /home/sugar/sugar
+timeout 10 /home/sugar/sugar

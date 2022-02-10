@@ -9,10 +9,7 @@ void init_proc()
     setvbuf(stdin, 0, _IONBF, 0);
     setvbuf(stdout, 0, _IONBF, 0);
     scmp_filter_ctx ctx = seccomp_init(SCMP_ACT_ALLOW);
-    // u cant use one gadget anymore
     seccomp_rule_add(ctx, SCMP_ACT_KILL, SCMP_SYS(execve), 0);
-    // there is another way to open file
-    seccomp_rule_add(ctx, SCMP_ACT_KILL, SCMP_SYS(open), 0);
     seccomp_load(ctx);
     seccomp_release(ctx);
 }

