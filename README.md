@@ -20,3 +20,13 @@
 | [fullchain-buff](2021-eof-qual/fullchain-buff)               | Pwn      | 13/83                    |
 | [myfs-1](2021-eof-qual/myfs)<br />[myfs-2](2021-eof-qual/myfs)<br />[myfs-3](2021-eof-qual/myfs) | Pwn      | 7/83<br />7/83<br />6/83 |
 
+
+
+## 2021 EOF final
+
+| Name                                    | Category | Solve |
+| --------------------------------------- | -------- | ----- |
+| [sugar](2021-eof-final/sugar)           | Pwn      | 7/25  |
+| [logger](2021-eof-final/logger)         | Pwn      | 6/25  |
+| [two-gadget](2021-eof-final/two-gadget) | Pwn      | 3/25  |
+
